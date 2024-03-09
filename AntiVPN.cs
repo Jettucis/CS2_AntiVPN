@@ -15,8 +15,8 @@ public class AntiVPN : BasePlugin
     public override void Load(bool hotReload)
     {
         Config.CreateOrLoadConfig(ModuleDirectory + "/antivpn_config.json");
+        RegisterEventHandler<EventPlayerConnectFull>(OnPlayerConnectFull);
     }
-    [GameEventHandler]
     private HookResult OnPlayerConnectFull(EventPlayerConnectFull @event, GameEventInfo info)
     {
    	CCSPlayerController player = @event.Userid;
